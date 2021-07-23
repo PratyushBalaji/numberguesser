@@ -4,6 +4,7 @@ from random import randint
 setMin = int(input("What should the smallest number on the scale be? "))
 setMax = int(input("What should the largest number on the scale be? "))
 setChances = int(input("How many chances would you like? "))
+lives = setChances
 
 #variables for the game
 number = randint(setMin,setMax)
@@ -22,7 +23,7 @@ print("")
 
 
 #actual game code
-while chances <= setChances:
+while chances <= lives-1:
     guess = input("Pick a number between the numbers you chose - ")
     guess = int(guess)
 
@@ -38,5 +39,6 @@ while chances <= setChances:
     if guess == '':
         break
 
-if not chances <= setChances:
-    print("You have run out of your 5 chances!! The number was : ",number,"! Press 'enter' to exit")
+if not chances <= lives-1:
+    print("You have run out of chances!! The number was : ",number,"! Press 'enter' to exit")
+    input("Press 'enter' to exit the script ")
