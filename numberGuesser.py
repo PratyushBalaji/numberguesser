@@ -1,30 +1,29 @@
 from random import randint
 
-#user changeable parameters to change game difficulty.
-#Edit the integer values alone as declaring it witout 'int()' will cause an error (randint parameters HAVE to be integer variables, NOT strings)
-minInt = int(1)
-maxInt = int(10)
-maxChance = 5
+#intro questions for users to set parameters instead of opening source code to edit
+setMin = int(input("What should the smallest number on the scale be? "))
+setMax = int(input("What should the largest number on the scale be? "))
+setChances = int(input("How many chances would you like? "))
 
 #variables for the game
-number = randint(minInt,maxInt)
-guess = None
+number = randint(setMin,setMax)
 chances = 0
 
 #pre-game instructions
-print("In this game, you have to guess the integer from ",minInt, "to ",maxInt," picked at random.")
-print("You have a maximum of",maxChance,"chances to do so.")
-print("To change the number of chances and randint values, check the source code.")
+print("")
+print("")
+print("In this game, you have to guess the integer from ",setMin, "to ",setMax," picked at random.")
+print("You have a maximum of",setChances,"chances to do so.")
 print("")
 print("P.S. If you type anything other than integers, the game will exit...")
-print("so maybe don't do that")
 print("")
 print("Happy gaming!")
 print("")
 
+
 #actual game code
-while chances <= maxChance:
-    guess = input("Pick a number between 1 and 10 : ")
+while chances <= setChances:
+    guess = input("Pick a number between the numbers you chose - ")
     guess = int(guess)
 
     if guess < number:
@@ -39,5 +38,5 @@ while chances <= maxChance:
     if guess == '':
         break
 
-if not chances <= maxChance:
+if not chances <= setChances:
     print("You have run out of your 5 chances!! The number was : ",number,"! Press 'enter' to exit")
